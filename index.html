@@ -3,12 +3,12 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <meta name="theme-color" content="#f6f2ec">
-  <meta name="description" content="Dolled Up — a destination for great hair, thoughtful beauty, and personal style. Explore our barber shop, salon, and beauty supply.">
-  <title>Dolled Up — Hair, Beauty & More</title>
+  <meta name="theme-color" content="#fff8fc">
+  <meta name="description" content="Dolled Up by Shellian — barber services, salon appointments, beauty products, and styling tools.">
+  <title>Dolled Up by Shellian — Hair & Beauty</title>
   <style>
     @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
-    :root{--paper:#f6f2ec;--ink:#211d1a;--muted:#716a63;--line:#d9d1c8;--rose:#d9b9ad;--rose-dark:#92695e;--sand:#e9dfd3;--white:#fffdf9;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;--wrap:1240px}
+    :root{--paper:#fff8fc;--ink:#21161d;--muted:#76636d;--line:#e5cbd8;--rose:#f8d9e9;--rose-dark:#b41464;--gold:#d6ad43;--sand:#f6e6ee;--white:#fffdfd;--serif:"Playfair Display",Georgia,serif;--sans:"DM Sans",Arial,sans-serif;--wrap:1240px}
     *{box-sizing:border-box}
     html{scroll-behavior:smooth}
     body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--sans);font-size:15px;line-height:1.6}
@@ -27,14 +27,14 @@
     .bag{border:1px solid var(--line);padding:10px 13px;background:transparent;cursor:pointer}
     .menu-toggle{display:none;background:none;border:0;font-size:22px}
     .hero{padding:27px 0 70px}
-    .hero-frame{position:relative;min-height:550px;overflow:hidden;background:#d6c4b5;display:grid;place-items:center}
+    .hero-frame{position:relative;min-height:580px;overflow:hidden;background:var(--sand);display:grid;grid-template-columns:.9fr 1.1fr;align-items:stretch}
     .hero-image{position:absolute;inset:0;width:100%;height:100%;background:linear-gradient(100deg,rgba(26,22,19,.5),rgba(26,22,19,.08)),linear-gradient(135deg,#bba393,#d8c9bb 55%,#8d7464)}
     .hero-image:after{content:"";position:absolute;inset:0;background:radial-gradient(ellipse at 70% 40%,rgba(252,237,223,.38),transparent 35%),linear-gradient(120deg,transparent 45%,rgba(34,27,23,.22))}
-    .hero-copy{position:relative;z-index:1;color:#fff9f1;text-align:center;width:min(740px,90%);padding:70px 20px}
+    .hero-copy{position:relative;z-index:1;color:var(--ink);text-align:left;width:100%;padding:clamp(34px,6vw,80px);display:flex;flex-direction:column;align-items:flex-start;justify-content:center}
     .eyebrow{font-size:10px;letter-spacing:.25em;text-transform:uppercase}
     h1,h2,h3,p{margin-top:0}
     h1{font:500 clamp(46px,8vw,88px)/.98 var(--serif);letter-spacing:-.04em;margin:18px 0 22px}
-    .hero-copy p{font-size:15px;max-width:470px;margin:0 auto 29px;color:rgba(255,249,241,.9)}
+    .hero-copy p{font-size:15px;max-width:440px;margin:0 0 29px;color:var(--muted)}
     .button{display:inline-flex;align-items:center;justify-content:center;gap:10px;min-height:48px;padding:0 22px;border:1px solid var(--ink);background:var(--ink);color:white;font-size:10px;letter-spacing:.16em;text-transform:uppercase;transition:transform .2s,background .2s}
     .button:hover{transform:translateY(-2px);background:#443a34}
     .button.light{border-color:#fff9f1;background:#fff9f1;color:var(--ink)}
@@ -48,20 +48,22 @@
     .section-heading .eyebrow{color:var(--rose-dark)}
     .destination-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:15px}
     .destination{position:relative;min-height:465px;overflow:hidden;background:#ded2c6;display:flex;align-items:end}
-    .destination-art{position:absolute;inset:0;transition:transform .65s cubic-bezier(.2,.7,.3,1);background:linear-gradient(180deg,rgba(44,34,28,.02) 24%,rgba(36,28,24,.76)),linear-gradient(135deg,#c2b0a1,#e2d5c8 48%,#8b7263)}
+    .destination-art{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;transition:transform .65s cubic-bezier(.2,.7,.3,1)}
+    .destination:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(35,20,29,.02) 23%,rgba(35,20,29,.78));pointer-events:none}
     .destination:nth-child(2) .destination-art{background:linear-gradient(180deg,rgba(44,34,28,.02) 24%,rgba(36,28,24,.76)),linear-gradient(140deg,#d0b3a7,#e9d7cc 48%,#92766b)}
     .destination:nth-child(3) .destination-art{background:linear-gradient(180deg,rgba(44,34,28,.02) 24%,rgba(36,28,24,.76)),linear-gradient(140deg,#b9a695,#e4d9cf 48%,#85796c)}
     .destination:hover .destination-art{transform:scale(1.035)}
-    .photo-note{position:absolute;top:18px;left:18px;color:rgba(255,255,255,.88);font-size:9px;letter-spacing:.15em;text-transform:uppercase}
-    .destination-copy{position:relative;color:white;padding:26px;width:100%}
+    .photo-note{position:absolute;z-index:2;top:18px;left:18px;color:rgba(255,255,255,.88);font-size:9px;letter-spacing:.15em;text-transform:uppercase}
+    .destination-copy{position:relative;z-index:1;color:white;padding:26px;width:100%}
     .destination-copy .eyebrow{opacity:.78}
     .destination-copy h3{font:500 34px/1.05 var(--serif);margin:9px 0 8px}
     .destination-copy p{max-width:330px;color:rgba(255,255,255,.82);font-size:13px;margin-bottom:19px}
     .text-link{display:inline-flex;align-items:center;gap:12px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;border-bottom:1px solid currentColor;padding-bottom:6px}
     .text-link span{font-size:18px;line-height:12px}
     .story{display:grid;grid-template-columns:1fr 1fr;min-height:465px;background:#e8ded4;margin-bottom:96px}
-    .story-art{min-height:410px;background:linear-gradient(135deg,#bda998,#e4d9cf 52%,#89776a);position:relative}
-    .story-art:after{content:"LOCATION PHOTO";position:absolute;bottom:18px;left:18px;color:#fff;font-size:9px;letter-spacing:.17em}
+    .story-art{min-height:410px;position:relative;overflow:hidden;background:#eadde4}
+    .story-art img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:center 35%}
+    .story-art:after{content:"DOLLED UP BY SHELLIAN";position:absolute;bottom:18px;left:18px;color:#fff;font-size:9px;letter-spacing:.17em;text-shadow:0 2px 12px rgba(0,0,0,.6)}
     .story-copy{align-self:center;padding:clamp(36px,7vw,90px)}
     .story-copy h2{font:500 clamp(34px,4.6vw,54px)/1.04 var(--serif);margin:15px 0}
     .story-copy p{color:var(--muted);max-width:475px}
@@ -71,11 +73,20 @@
     .service-card .number{font:500 31px/1 var(--serif);color:var(--rose-dark)}
     .service-card h3{font:500 24px/1.1 var(--serif);margin:20px 0 9px}
     .service-card p{color:var(--muted);font-size:13px;min-height:62px}
-    .shop{background:#eee7df;padding:82px 0 90px}
+    .shop{background:#faedf3;padding:82px 0 90px}
     .shop-head{display:flex;align-items:end;justify-content:space-between;gap:30px;margin-bottom:30px}
     .shop-head h2{font:500 clamp(33px,4vw,48px)/1.06 var(--serif);margin:12px 0 0}
     .shop-head p{max-width:400px;color:var(--muted);font-size:13px;margin:0}
     .categories{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
+    .product-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:15px;margin-top:34px}
+    .product-card{background:var(--white);border:1px solid rgba(33,22,29,.08)}
+    .product-photo{aspect-ratio:4/4.5;background:#f3edf0;overflow:hidden}
+    .product-photo img{width:100%;height:100%;object-fit:cover;transition:transform .45s}
+    .product-card:hover .product-photo img{transform:scale(1.04)}
+    .product-copy{padding:16px 17px 19px}
+    .product-copy .eyebrow{color:var(--rose-dark);font-size:9px}
+    .product-copy h3{font:500 20px/1.15 var(--serif);margin:8px 0 5px}
+    .product-copy p{font-size:11px;color:var(--muted);margin:0}
     .category{min-height:250px;display:flex;align-items:end;padding:20px;background:linear-gradient(160deg,#d3c1b2,#e7dcd2 56%,#a18a7b);position:relative;overflow:hidden}
     .category:nth-child(2){background:linear-gradient(145deg,#d8bbb0,#eadbd2 55%,#9c786a)}
     .category:nth-child(3){background:linear-gradient(145deg,#c5b19f,#e8ddd2 55%,#8f7968)}
@@ -112,16 +123,16 @@
     .cart-empty{padding:40px 0;color:var(--muted)}
     .mobile-menu{display:none}
     @media(max-width:850px){.navlinks{gap:15px;font-size:9px}.destination{min-height:390px}.destination-copy{padding:20px}.destination-copy h3{font-size:28px}.shop-head{display:block}.shop-head p{margin-top:12px}.categories{grid-template-columns:repeat(2,1fr)}}
-    @media(max-width:650px){.wrap{width:min(var(--wrap),calc(100% - 32px))}.announcement{font-size:8px}.nav{min-height:67px}.brand{font-size:20px}.navlinks{display:none}.menu-toggle{display:block}.navtools{gap:9px}.bag{padding:8px 10px;font-size:9px}.mobile-menu{position:absolute;top:100%;left:0;right:0;background:var(--paper);padding:12px 18px 22px;border-bottom:1px solid var(--line);display:none}.mobile-menu.open{display:grid}.mobile-menu a{padding:12px 0;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.13em;text-transform:uppercase}.hero{padding:14px 0 44px}.hero-frame{min-height:475px}.hero-copy{padding:50px 10px}.hero-copy p{font-size:13px}.intro{padding:48px 5px 55px}.destination-grid{grid-template-columns:1fr}.destination{min-height:380px}.destinations{padding-bottom:66px}.story{grid-template-columns:1fr;margin-bottom:67px}.story-art{min-height:290px}.story-copy{padding:34px 27px 41px}.services{padding-bottom:68px}.service-grid{grid-template-columns:1fr}.service-card p{min-height:0}.shop{padding:60px 0}.categories{gap:9px}.category{min-height:205px;padding:14px}.category strong{font-size:19px}.booking{padding:64px 0}.booking-layout{grid-template-columns:1fr;gap:27px}.booking-form{grid-template-columns:1fr}.booking-form label.full{grid-column:auto}.form-note,.form-result{grid-column:auto}.visit-grid{grid-template-columns:1fr;gap:28px}.footer-row{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}}
+    @media(max-width:650px){.wrap{width:min(var(--wrap),calc(100% - 32px))}.announcement{font-size:8px}.nav{min-height:67px}.brand{font-size:20px}.navlinks{display:none}.menu-toggle{display:block}.navtools{gap:9px}.bag{padding:8px 10px;font-size:9px}.mobile-menu{position:absolute;top:100%;left:0;right:0;background:var(--paper);padding:12px 18px 22px;border-bottom:1px solid var(--line);display:none}.mobile-menu.open{display:grid}.mobile-menu a{padding:12px 0;border-bottom:1px solid var(--line);font-size:11px;letter-spacing:.13em;text-transform:uppercase}.hero{padding:14px 0 44px}.hero-frame{min-height:0;grid-template-columns:1fr}.hero-copy{padding:38px 28px}.hero-photo{min-height:0;height:470px;order:2}.hero-copy p{font-size:13px}.intro{padding:48px 5px 55px}.destination-grid{grid-template-columns:1fr}.destination{min-height:380px}.destinations{padding-bottom:66px}.story{grid-template-columns:1fr;margin-bottom:67px}.story-art{min-height:290px}.story-copy{padding:34px 27px 41px}.services{padding-bottom:68px}.service-grid{grid-template-columns:1fr}.service-card p{min-height:0}.shop{padding:60px 0}.categories{gap:9px}.category{min-height:205px;padding:14px}.category strong{font-size:19px}.product-grid{grid-template-columns:repeat(2,1fr);gap:10px}.product-copy{padding:13px}.booking{padding:64px 0}.booking-layout{grid-template-columns:1fr;gap:27px}.booking-form{grid-template-columns:1fr}.booking-form label.full{grid-column:auto}.form-note,.form-result{grid-column:auto}.visit-grid{grid-template-columns:1fr;gap:28px}.footer-row{align-items:flex-start;flex-direction:column}.footer-links{flex-wrap:wrap}}
     @media(prefers-reduced-motion:reduce){html{scroll-behavior:auto}*,*:before,*:after{transition:none!important}}
   </style>
 </head>
 <body>
-  <div class="announcement">A little more care. A lot more confidence. &nbsp;·&nbsp; Visit us in person</div>
+  <div class="announcement">Dolled Up by Shellian &nbsp;·&nbsp; Hair, beauty, and a little extra confidence</div>
   <header class="header">
     <div class="wrap nav">
       <button class="menu-toggle" id="menuToggle" aria-label="Open menu" aria-expanded="false">☰</button>
-      <a class="brand" href="#" aria-label="Dolled Up home">Dolled Up<small>Hair · Beauty · More</small></a>
+      <a class="brand" href="#" aria-label="Dolled Up by Shellian home">Dolled Up<small>By Shellian</small></a>
       <nav class="navlinks" aria-label="Main navigation">
         <a href="#destinations">Our Places</a><a href="#story">Our Story</a><a href="#shop">Shop</a><a href="#booking">Book</a>
       </nav>
@@ -135,43 +146,43 @@
   <main>
     <section class="hero wrap" aria-label="Welcome to Dolled Up">
       <div class="hero-frame">
-        <div class="hero-image" role="img" aria-label="A warm editorial image area for Dolled Up campaign photography"></div>
+        <img class="hero-photo" src="assets/brand-campaign.jpeg" alt="Dolled Up by Shellian campaign featuring professional styling tools">
         <div class="hero-copy">
-          <div class="eyebrow">Your neighborhood beauty destination</div>
-          <h1>Look good.<br>Feel like you.</h1>
-          <p>From a fresh cut to your next favorite look, find your people, your products, and a little time for yourself.</p>
-          <a class="button light" href="#destinations">Find your Dolled Up <span>↗</span></a>
+          <div class="eyebrow">Dolled Up by Shellian</div>
+          <h1>Beauty,<br>styled your way.</h1>
+          <p>Visit the barber shop or salon, book your next look, or shop professional styling tools and beauty essentials.</p>
+          <a class="button" href="#destinations">Explore our locations <span>↗</span></a>
         </div>
       </div>
     </section>
 
     <section class="intro wrap">
-      <div class="eyebrow">Three places. One feel-good destination.</div>
-      <h2>Beauty is personal.<br>So is the way we show up for you.</h2>
-      <p>Dolled Up brings the neighborhood together around great grooming, thoughtful beauty, and the products that help you make every look your own.</p>
+      <div class="eyebrow">Three destinations. One beauty family.</div>
+      <h2>Good grooming. Great hair.<br>Your kind of beauty.</h2>
+      <p>Dolled Up by Shellian brings the barber shop, beauty salon, and beauty supply together in one place—so you can book a service or find products for your next look.</p>
     </section>
 
     <section class="destinations wrap" id="destinations">
       <div class="section-heading"><div class="eyebrow">Make yourself at home</div><h2>Choose your destination</h2></div>
       <div class="destination-grid">
         <article class="destination">
-          <div class="destination-art" role="img" aria-label="Barber shop photography placeholder"></div><span class="photo-note">Barber shop photo</span>
+          <img class="destination-art" src="assets/brand-campaign.jpeg" alt="Dolled Up campaign portrait representing the barber shop"><span class="photo-note">Barber shop</span>
           <div class="destination-copy"><div class="eyebrow">The chair is waiting</div><h3>Barber Shop</h3><p>Good cuts, good conversation, and a fresh start to your week.</p><a class="text-link" href="#barber">Explore the barber shop <span>↗</span></a></div>
         </article>
         <article class="destination">
-          <div class="destination-art" role="img" aria-label="Beauty salon photography placeholder"></div><span class="photo-note">Salon photo</span>
+          <img class="destination-art" src="assets/brand-editorial.jpeg" alt="Dolled Up campaign portrait representing the beauty salon"><span class="photo-note">Beauty salon</span>
           <div class="destination-copy"><div class="eyebrow">Your next look starts here</div><h3>Beauty Salon</h3><p>Come in for a new style, stay for the care and confidence.</p><a class="text-link" href="#salon">Explore the salon <span>↗</span></a></div>
         </article>
         <article class="destination">
-          <div class="destination-art" role="img" aria-label="Beauty supply store photography placeholder"></div><span class="photo-note">Beauty supply photo</span>
-          <div class="destination-copy"><div class="eyebrow">Your beauty shelf, refreshed</div><h3>Beauty Supply</h3><p>Everyday essentials and new favorites, all in one place.</p><a class="text-link" href="#shop">Explore beauty supply <span>↗</span></a></div>
+          <img class="destination-art" src="assets/beauty-bundle.jpeg" alt="Dolled Up hair care and styling products arranged in a gift set"><span class="photo-note">Beauty supply</span>
+          <div class="destination-copy"><div class="eyebrow">Your beauty shelf, refreshed</div><h3>Beauty Supply</h3><p>Everyday essentials and new favorites, all in one place.</p><a class="text-link" href="#supply">Explore beauty supply <span>↗</span></a></div>
         </article>
       </div>
     </section>
 
     <section class="story wrap" id="story">
-      <div class="story-art" role="img" aria-label="Dolled Up location photography placeholder"></div>
-      <div class="story-copy"><div class="eyebrow">A neighborhood kind of beauty</div><h2>Come as you are.<br>Leave feeling like yourself.</h2><p>Dolled Up is built around the little things that make a visit feel special: skilled hands, a warm welcome, and a place where your style is always yours.</p><a class="text-link" href="#visit">Meet us in person <span>↗</span></a></div>
+      <div class="story-art"><img src="assets/brand-editorial.jpeg" alt="Dolled Up by Shellian campaign image"></div>
+      <div class="story-copy"><div class="eyebrow">A neighborhood kind of beauty</div><h2>Come as you are.<br>Leave feeling like yourself.</h2><p>Dolled Up by Shellian is built around skilled hands, a warm welcome, and tools and products that help you make every look your own.</p><a class="text-link" href="#visit">Meet us in person <span>↗</span></a></div>
     </section>
 
     <section class="services wrap" id="barber">
@@ -179,18 +190,24 @@
       <div class="service-grid">
         <article class="service-card"><div class="number">01</div><h3>Barber Shop</h3><p>Fresh cuts and classic grooming in a relaxed neighborhood setting.</p><a class="text-link" href="#booking">Book the barber shop <span>↗</span></a></article>
         <article class="service-card" id="salon"><div class="number">02</div><h3>Beauty Salon</h3><p>Make time for a new look, a familiar favorite, or a little self-care.</p><a class="text-link" href="#booking">Book the salon <span>↗</span></a></article>
-        <article class="service-card"><div class="number">03</div><h3>Beauty Supply</h3><p>Shop wigs, styling tools, hair care, and Dolled Up favorites.</p><a class="text-link" href="#shop">Shop the collection <span>↗</span></a></article>
+        <article class="service-card" id="supply"><div class="number">03</div><h3>Beauty Supply</h3><p>Shop wigs, styling tools, hair care, and Dolled Up favorites.</p><a class="text-link" href="#shop">Shop the collection <span>↗</span></a></article>
       </div>
     </section>
 
     <section class="shop" id="shop">
       <div class="wrap">
-        <div class="shop-head"><div><div class="eyebrow">The good stuff</div><h2>Shop your beauty essentials</h2></div><p>Find a new look or stock up on the things you love. Our online collection is taking shape.</p></div>
+        <div class="shop-head"><div><div class="eyebrow">Dolled Up by Shellian online shop</div><h2>Shop beauty & styling tools</h2></div><p>Explore professional flat irons, hot combs, hair care, wigs, and styling essentials from the Dolled Up collection.</p></div>
         <div class="categories">
           <a class="category" href="#shop"><strong>Wigs<small>Find your next look ↗</small></strong></a>
           <a class="category" href="#shop"><strong>Styling Tools<small>Tools for your routine ↗</small></strong></a>
           <a class="category" href="#shop"><strong>Hair Essentials<small>Glue, care & more ↗</small></strong></a>
           <a class="category" href="#shop"><strong>Dolled Up Merch<small>Wear your good mood ↗</small></strong></a>
+        </div>
+        <div class="product-grid" aria-label="Dolled Up styling products">
+          <article class="product-card"><div class="product-photo"><img src="assets/flat-iron-black.jpeg" alt="Dolled Up professional black flat iron"></div><div class="product-copy"><div class="eyebrow">Professional styling tool</div><h3>Professional Flat Iron</h3><p>Black & rose gold · pricing to be added</p></div></article>
+          <article class="product-card"><div class="product-photo"><img src="assets/flat-iron-pink.jpeg" alt="Dolled Up professional pink flat iron"></div><div class="product-copy"><div class="eyebrow">Professional styling tool</div><h3>Pink Flat Iron</h3><p>Pink finish · pricing to be added</p></div></article>
+          <article class="product-card"><div class="product-photo"><img src="assets/flat-iron-white.jpeg" alt="Dolled Up professional white flat iron"></div><div class="product-copy"><div class="eyebrow">Professional styling tool</div><h3>White Flat Iron</h3><p>White finish · pricing to be added</p></div></article>
+          <article class="product-card"><div class="product-photo"><img src="assets/hot-comb.jpeg" alt="Dolled Up professional hot comb"></div><div class="product-copy"><div class="eyebrow">Professional styling tool</div><h3>Professional Hot Comb</h3><p>Pricing to be added</p></div></article>
         </div>
       </div>
     </section>
@@ -213,14 +230,14 @@
 
     <section class="visit" id="visit">
       <div class="wrap visit-grid">
-        <div><div class="eyebrow">Come by</div><h2>Three local spots.<br>One warm welcome.</h2><p>We’ll add the addresses, hours, and directions for each location here.</p></div>
+        <div><div class="eyebrow">Come by</div><h2>Three local spots.<br>One warm welcome.</h2><p>Location addresses, hours, and directions will be added for the barber shop, salon, and beauty supply.</p></div>
         <div><div class="eyebrow">Stay in the know</div><h2>More good hair days, soon.</h2><p>Follow along for new arrivals, shop updates, and a little beauty inspiration.</p></div>
       </div>
     </section>
   </main>
 
   <footer class="footer">
-    <div class="wrap footer-row"><a class="brand" href="#">Dolled Up<small>Hair · Beauty · More</small></a><div class="footer-links"><a href="#destinations">Locations</a><a href="#booking">Book</a><a href="#shop">Shop</a></div><div>© <span id="year"></span> Dolled Up</div></div>
+    <div class="wrap footer-row"><a class="brand" href="#">Dolled Up<small>By Shellian</small></a><div class="footer-links"><a href="#destinations">Locations</a><a href="#booking">Book</a><a href="#shop">Shop</a></div><div>© <span id="year"></span> Dolled Up</div></div>
   </footer>
 
   <div class="cart-drawer" id="cartDrawer" aria-hidden="true">
